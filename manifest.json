@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "CDA Premium Adblocker",
+  "version": "1.0.0",
+  "description": "Automatically skips annoying premium ads on polish website cda.pl. Now you can watch your favorite movie without any interruption.",
+  "permissions": [],
+  "host_permissions": ["*://*.cda.pl/*"],
+  "icons": {
+    "16": "icons/x16.png",
+    "48": "icons/x48.png",
+    "128": "icons/x128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.cda.pl/*"],
+      "js": ["dist/compiled.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
