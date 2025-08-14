@@ -3,4 +3,4 @@
 export type Nullable<T> = T | null;
 
 // Type alias
-export type Int = number;
+export type UInt64 = number;

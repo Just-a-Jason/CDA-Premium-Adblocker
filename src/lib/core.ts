@@ -1,7 +1,7 @@
 import { EXT_NAME } from "../constants";
-import { type Int } from "../types";
+import { type UInt64 } from "../types";
 
-let ad_skip_counter: Int = 0;
+let ad_skip_counter: UInt64 = 0;
 
 export function skip_ad(player: HTMLVideoElement): void {
   if (isNaN(player.duration)) {
