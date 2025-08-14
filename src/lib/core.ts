@@ -4,18 +4,18 @@ import { type Int } from "../types";
 let ad_skip_counter: Int = 0;
 
 export function skip_ad(player: HTMLVideoElement): void {
-  let skipped = false;
+  if (isNaN(player.duration)) {
+    return;
+  }
 
-  player.addEventListener("play", () => {
-    if (skipped) return;
-    skipped = true;
+  player.currentTime = player.duration;
 
-    player.currentTime = player.duration;
+  if (player.paused) {
     player.play();
+  }
 
-    ad_skip_counter++;
-    log_to_console();
-  });
+  ad_skip_counter++;
+  log_to_console();
 }
 
 function log_to_console(): void {
