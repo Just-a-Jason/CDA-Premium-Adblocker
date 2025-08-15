@@ -35,8 +35,22 @@ export function log_cda_movie_title(): void {
   const title: Nullable<HTMLSpanElement> =
     document.querySelector(CDA_VIDEO_NAME_CLASS);
 
-  const cda_title: string =
+  let cda_title: string =
     title === null ? "Unknown title" : title!.textContent.trim();
+
+  if (title !== null) {
+    const a = document.createElement("a");
+    a.textContent = "(CDA Premium Adblocker)";
+    a.href = "https://github.com/Just-a-Jason/CDA-Premium-Adblocker/";
+
+    cda_title += " - Ads removed by using: ";
+
+    const h1 = document.createElement("h1");
+    h1.textContent = cda_title;
+
+    title.appendChild(h1);
+    title.appendChild(a);
+  }
 
   console.info(
     `%c[LOG]%c[${EXT_NAME}]%c Now watching: ${cda_title}`,

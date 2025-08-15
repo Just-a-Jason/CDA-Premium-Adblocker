@@ -1,17 +1,10 @@
-import {
-  EXT_NAME,
-  CDA_AD_CONTAINER_CLASS,
-  CDA_PLAYER_CLASS,
-} from "../constants";
+import { EXT_NAME, CDA_AD_CONTAINER_CLASS } from "../constants";
 import { Nullable } from "../types";
 import { skip_ad } from "./core";
 
-let cda_movie_player_ref: Nullable<HTMLVideoElement> = null;
 export let cda_player_state: boolean = false;
 
 export function link_observer_to_ad_container() {
-  cda_movie_player_ref = document.querySelector(CDA_PLAYER_CLASS);
-
   const ad_container: Nullable<HTMLDivElement> = document.querySelector(
     CDA_AD_CONTAINER_CLASS
   );
